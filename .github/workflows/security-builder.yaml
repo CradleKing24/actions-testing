@@ -3,17 +3,17 @@ on:
     branchs:
       - main
   
-  workflow_call:
-    inputs:
-      sleep-seconds:
-        required: true
-        type: string
+  # workflow_call:
+  #   inputs:
+  #     sleep-seconds:
+  #       required: true
+  #       type: string
 
 jobs:
-  call-build:
-    uses: CradleKing24/actions-testing/.github/workflows/build.yaml@master
-    with:
-      sleep-seconds: ${{ inputs.sleep-seconds }}
+  # call-build:
+  #   uses: CradleKing24/actions-testing/.github/workflows/build.yaml@master
+  #   with:
+  #     sleep-seconds: ${{ inputs.sleep-seconds }}
   scan-build:
     runs-on: ubuntu-latest
     steps:
