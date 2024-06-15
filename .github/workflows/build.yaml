@@ -1,0 +1,14 @@
+on:
+  workflow_call:
+    inputs:
+      sleep-seconds:
+        required: true
+        type: string
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Sleep for ${{ inputs.sleep-seconds }} seconds
+      run: sleep ${{ inputs.sleep-seconds }}s
+      shell: bash
