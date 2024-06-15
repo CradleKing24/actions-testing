@@ -8,6 +8,7 @@ on:
       sleep-seconds:
         required: true
         type: string
+        default: 5
 
 jobs:
   call-build:
