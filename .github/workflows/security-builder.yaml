@@ -1,4 +1,7 @@
 on:
+  push:
+    branch:
+      - release/*
   workflow_call:
     inputs:
       sleep-seconds:
@@ -6,9 +9,13 @@ on:
         type: string
 
 jobs:
-  build:
+  call-build:
+    uses: CradleKing24/actions-testing/.github/workflows/build.yaml@master
+    with:
+      sleep-seconds: ${{ inputs.sleep-seconds }}
+  scan-build:
     runs-on: ubuntu-latest
     steps:
-    - name: Sleep for ${{ inputs.sleep-seconds }} seconds
-      run: sleep ${{ inputs.sleep-seconds }}s
+    - name: Echo test
+      run: echo Test
       shell: bash

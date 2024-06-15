@@ -10,8 +10,8 @@ jobs:
     uses: CradleKing24/actions-testing/.github/workflows/security-scanner.yaml@master
     with:
       sleep-seconds: 10
-  call-security-builder:
-    if: contains(github.ref, 'release/')
-    uses: CradleKing24/actions-testing/.github/workflows/security-builder.yaml@master
-    with:
-      sleep-seconds: 2
+  # call-security-builder:
+  #   if: contains(github.ref, 'release/')
+  #   uses: CradleKing24/actions-testing/.github/workflows/security-builder.yaml@master
+  #   with:
+  #     sleep-seconds: 2
