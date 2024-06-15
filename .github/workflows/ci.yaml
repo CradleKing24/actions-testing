@@ -1,7 +1,5 @@
 on:
   push:
-    branches:
-      - main
 
 jobs:
   call-build:
@@ -11,4 +9,4 @@ jobs:
   call-security-scanner:
     uses: CradleKing24/actions-testing/.github/workflows/security-scanner.yaml@master
     with:
-      sleep-seconds: 10
+      sleep-seconds: 5
