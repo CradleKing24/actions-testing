@@ -22,8 +22,8 @@ jobs:
     - id: stepWorld
       name: Output world text testing
       run: echo "world=there world" >> $GITHUB_OUTPUT
-    - id: stepWorld
-      name: Output world text testing
+    - id: stepUploadTest
+      name: Upload folder
       run: mkdir build_files && cd build_files && echo "hello again there" >> greetings.txt
     - uses: actions/upload-artifact@v4
       with:
