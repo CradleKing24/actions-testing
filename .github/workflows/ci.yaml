@@ -7,5 +7,3 @@ jobs:
     uses: CradleKing24/actions-testing/.github/workflows/build.yaml@master
     with:
       sleep-seconds: 10
-    secrets:
-      envPAT: inherit
