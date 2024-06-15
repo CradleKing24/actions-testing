@@ -1,7 +1,7 @@
 on:
   push:
     branchs:
-      - release/**
+      - main
   
   workflow_call:
     inputs:
