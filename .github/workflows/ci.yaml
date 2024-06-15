@@ -1,9 +1,17 @@
 on:
   push:
-  pull_request:
 
 jobs:
-  call-build-passing-data:
+  call-build:
     uses: CradleKing24/actions-testing/.github/workflows/build.yaml@master
     with:
       sleep-seconds: 10
+  call-security-scanner:
+    uses: CradleKing24/actions-testing/.github/workflows/security-scanner.yaml@master
+    with:
+      sleep-seconds: 10
+  call-security-builder:
+    if: contains(github.ref, 'release/')
+    uses: CradleKing24/actions-testing/.github/workflows/security-builder.yaml@master
+    with:
+      sleep-seconds: 2
