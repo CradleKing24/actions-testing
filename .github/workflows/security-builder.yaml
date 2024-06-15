@@ -6,13 +6,12 @@ on:
       sleep-seconds:
         required: false
         type: string
-        default: '5'
 
 jobs:
   call-build:
     uses: CradleKing24/actions-testing/.github/workflows/build.yaml@master
     with:
-      sleep-seconds: ${{ inputs.sleep-seconds }}
+      sleep-seconds: ${{ inputs.sleep-seconds || '5' }}
   scan-build:
     runs-on: ubuntu-latest
     needs: call-build
