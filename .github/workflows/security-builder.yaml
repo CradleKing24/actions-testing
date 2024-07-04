@@ -1,24 +1,24 @@
-on:
-  push:
+# on:
+#   push:
   
-  workflow_call:
-    inputs:
-      sleep-seconds:
-        required: false
-        type: string
+#   workflow_call:
+#     inputs:
+#       sleep-seconds:
+#         required: false
+#         type: string
 
-jobs:
-  call-build:
-    uses: CradleKing24/actions-testing/.github/workflows/build.yaml@master
-    with:
-      sleep-seconds: ${{ inputs.sleep-seconds || '5' }}
-  scan-build:
-    runs-on: ubuntu-latest
-    needs: call-build
-    steps:
-    - uses: actions/download-artifact@v4
-      with:
-        name: my-artifact
-        path: different/folder/location
-    - name: Display structure of downloaded files
-      run: ls -R different/folder/location
+# jobs:
+#   call-build:
+#     uses: CradleKing24/actions-testing/.github/workflows/build.yaml@master
+#     with:
+#       sleep-seconds: ${{ inputs.sleep-seconds || '5' }}
+#   scan-build:
+#     runs-on: ubuntu-latest
+#     needs: call-build
+#     steps:
+#     - uses: actions/download-artifact@v4
+#       with:
+#         name: my-artifact
+#         path: different/folder/location
+#     - name: Display structure of downloaded files
+#       run: ls -R different/folder/location

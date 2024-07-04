@@ -1,31 +1,31 @@
-on:
-  workflow_call:
-    inputs:
-      sleep-seconds:
-        required: true
-        type: string
-    outputs:
-      world:
-        description: "The first output string"
-        value: ${{ jobs.build.outputs.output1 }}
+# on:
+#   workflow_call:
+#     inputs:
+#       sleep-seconds:
+#         required: true
+#         type: string
+#     outputs:
+#       world:
+#         description: "The first output string"
+#         value: ${{ jobs.build.outputs.output1 }}
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    outputs:
-      output1: ${{ steps.stepWorld.outputs.world }}
-    steps:
-    - id: stepSleep
-      name: Sleep for ${{ inputs.sleep-seconds }} seconds
-      run: sleep ${{ inputs.sleep-seconds }}s
-      shell: bash
-    - id: stepWorld
-      name: Output world text testing
-      run: echo "world=there world" >> $GITHUB_OUTPUT
-    - id: stepUploadTest
-      name: Upload folder
-      run: mkdir build_files && cd build_files && echo "hello again there" >> greetings.txt
-    - uses: actions/upload-artifact@v4
-      with:
-        name: my-artifact
-        path: build_files
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     outputs:
+#       output1: ${{ steps.stepWorld.outputs.world }}
+#     steps:
+#     - id: stepSleep
+#       name: Sleep for ${{ inputs.sleep-seconds }} seconds
+#       run: sleep ${{ inputs.sleep-seconds }}s
+#       shell: bash
+#     - id: stepWorld
+#       name: Output world text testing
+#       run: echo "world=there world" >> $GITHUB_OUTPUT
+#     - id: stepUploadTest
+#       name: Upload folder
+#       run: mkdir build_files && cd build_files && echo "hello again there" >> greetings.txt
+#     - uses: actions/upload-artifact@v4
+#       with:
+#         name: my-artifact
+#         path: build_files

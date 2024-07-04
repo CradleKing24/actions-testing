@@ -1,14 +1,14 @@
-on:
-  push:
-    # branches:
-    #   - main
+# on:
+#   push:
+#     # branches:
+#     #   - main
 
-jobs:
-  call-build:
-    uses: CradleKing24/actions-testing/.github/workflows/build.yaml@master
-    with:
-      sleep-seconds: 10
-  call-security-scanner:
-    uses: CradleKing24/actions-testing/.github/workflows/security-scanner.yaml@master
-    with:
-      sleep-seconds: 5
+# jobs:
+#   call-build:
+#     uses: CradleKing24/actions-testing/.github/workflows/build.yaml@master
+#     with:
+#       sleep-seconds: 10
+#   call-security-scanner:
+#     uses: CradleKing24/actions-testing/.github/workflows/security-scanner.yaml@master
+#     with:
+#       sleep-seconds: 5
