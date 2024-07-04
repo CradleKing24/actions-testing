@@ -1,0 +1,12 @@
+name: fanout-builds
+on:
+  push
+    branchs:
+      - master
+
+
+jobs:
+  call-build:
+    uses: CradleKing24/actions-testing/.github/workflows/build.yaml@master
+    with:
+      flow-name: 10

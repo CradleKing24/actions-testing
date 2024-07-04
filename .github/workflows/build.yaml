@@ -1,0 +1,14 @@
+on:
+  workflow_call:
+    inputs:
+      flow-name:
+        type: string
+
+run-name: ${{ inputs.flow-name }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - id: echo
+      run: echo this is workflow actions run named ${{ inputs.flow-name }}
