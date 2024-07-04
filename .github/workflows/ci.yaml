@@ -1,6 +1,6 @@
 name: fanout-builds
 on:
-  push
+  push:
     branches:
       - master
 
