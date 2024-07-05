@@ -25,3 +25,16 @@ jobs:
       - name: print files
         id: print-files
         run: echo '${{ steps.get-files.outputs.all_modified_files }}'
+  
+  matrix-job:
+    runs-on: ubuntu-latest
+    needs: get-changed-files
+    strategy:
+      matrix:
+        directories: ${{ fromJSON(needs.get-changed-files.outputs.matrix) }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Echo dirs
+        run: |
+          echo ${{ matrix.directories }}
