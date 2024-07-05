@@ -7,12 +7,16 @@ on:
 run-name: ${{ github.actor }}
 
 jobs:
-  # build:
-  #   uses: CradleKing24/actions-testing/.github/workflows/build.yaml@master
-  #   with:
-  #     flow-name: this is a unique name
-  example:
-    runs-on: ubuntu-latest
+  get-changed-files:
+    outputs:
+      matrix: ${{ steps.get-files.outputs.all_modified_files }}
     steps:
-    - id: echo
-      run: echo this is workflow actions run 
+    - name: Get changed files
+      id: get-files
+      uses: tj-actions/changed-files@v44.5.5
+      with:
+        matrix: true
+        dir_names: true
+    - name: print files
+      id: print-files
+      run: echo '${{ steps.get-files.outputs.all_modified_files }}'
