@@ -4,9 +4,15 @@ on:
     branches:
       - master
 
+run-name: ${{ github.actor }}
 
 jobs:
-  call-build:
-    uses: CradleKing24/actions-testing/.github/workflows/build.yaml@master
-    with:
-      flow-name: this is a unique name
+  # build:
+  #   uses: CradleKing24/actions-testing/.github/workflows/build.yaml@master
+  #   with:
+  #     flow-name: this is a unique name
+  example:
+    runs-on: ubuntu-latest
+    steps:
+    - id: echo
+      run: echo this is workflow actions run 
